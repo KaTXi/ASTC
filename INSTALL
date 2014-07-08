@@ -1,0 +1,5 @@
+Building AsturCoin
+
+See doc/build-*.md for instructions on building asturcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of AsturCoin.
