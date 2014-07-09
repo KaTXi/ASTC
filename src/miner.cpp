@@ -516,8 +516,8 @@ void static AsturCoinMiner(CWallet *pwallet)
         if (Params().NetworkID() != CChainParams::REGTEST) {
             // Busy-wait for the network to come online so we don't waste time mining
             // on an obsolete chain. In regtest mode we expect to fly solo.
-            while (vNodes.empty())
-                MilliSleep(1000);
+            //while (vNodes.empty())
+            //    MilliSleep(1000);
         }
 
         //
@@ -532,8 +532,8 @@ void static AsturCoinMiner(CWallet *pwallet)
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        printf("Running AsturCoinMiner with %" PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
-               ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+        //printf("Running AsturCoinMiner with %" PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        //       ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
         // Pre-build hash buffers
