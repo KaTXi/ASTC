@@ -66,7 +66,6 @@ public:
 
         vSeeds.push_back(CDNSSeedData("asturcoin.org seed #1", "s1.asturcoin.org"));
         vSeeds.push_back(CDNSSeedData("asturcoin.org seed #2", "s2.asturcoin.org"));
-		vSeeds.push_back(CDNSSeedData("fusionhash.com seed", "sfo.fusionhash.com"));
 
         // Workaround for Boost not being quite compatible with C++11;
         std::vector<unsigned char> pka = list_of(18);
