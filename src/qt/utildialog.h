@@ -10,12 +10,14 @@
 #include <QMenu>
 #include <QPoint>
 #include <QVariant>
+#include <QTime>
 
 namespace Ui {
     class UtilDialog;
 }
 class WalletModel;
 class OptionsModel;
+class ClientModel;
 
 QT_BEGIN_NAMESPACE
 class QModelIndex;
@@ -31,19 +33,31 @@ public:
     ~UtilDialog();
 
     void setModel(WalletModel *model);
-
+	enum MessageClass {
+        MC_ERROR,
+        MC_DEBUG,
+        CMD_REQUEST,
+        CMD_REPLY,
+        CMD_ERROR
+    };
 public slots:
     void accept();
-
+	void message(int category, const QString &message, bool html = false);
+	
 protected:
     virtual void keyPressEvent(QKeyEvent *event);
 
+signals:
+    // For RPC command executor
+    void cmdRequest(const QString &command);
+	
 private:
     Ui::UtilDialog *ui;
     WalletModel *model;
 
 private slots:
-    void on_receiveButton_clicked();
+	void startExecutor();
+	void handleSelectionChanged(int index);
 };
 
 #endif // UTILDIALOG_H

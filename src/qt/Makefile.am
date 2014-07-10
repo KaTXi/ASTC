@@ -158,7 +158,8 @@ QT_MOC = \
   asturcoin.moc \
   intro.moc \
   overviewpage.moc \
-  rpcconsole.moc
+  rpcconsole.moc \
+  utildialog.moc
 
 QT_QRC_CPP = qrc_asturcoin.cpp
 QT_QRC = asturcoin.qrc
