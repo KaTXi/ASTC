@@ -230,17 +230,11 @@ void UtilDialog::handleSelectionChanged(int index)
 void UtilDialog::setModel(WalletModel *model)
 {
     this->model = model;
-
 }
 
 UtilDialog::~UtilDialog()
 {
     delete ui;
-}
-
-void UtilDialog::accept()
-{
-    //clear();
 }
 
 void UtilDialog::startExecutor()
@@ -283,19 +277,4 @@ void UtilDialog::message(int category, const QString &message, bool html)
 	LogPrintf("Out: %s\n", out.toUtf8().constData());
 }
 
-void UtilDialog::keyPressEvent(QKeyEvent *event)
-{
-    if (event->key() == Qt::Key_Return)
-    {
-        // press return -> submit form
-        //if (ui->reqLabel->hasFocus() || ui->reqAmount->hasFocus() || ui->reqMessage->hasFocus())
-        //{
-        //    event->ignore();
-        //    on_receiveButton_clicked();
-        //    return;
-        //}
-    }
-
-    this->QDialog::keyPressEvent(event);
-}
 

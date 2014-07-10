@@ -23,7 +23,7 @@ QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** Dialog for requesting payment of asturcoins */
+/** Dialog for getting info of asturcoins */
 class UtilDialog : public QDialog
 {
     Q_OBJECT
@@ -41,12 +41,10 @@ public:
         CMD_ERROR
     };
 public slots:
-    void accept();
-	void message(int category, const QString &message, bool html = false);
+    void message(int category, const QString &message, bool html = false);
 	
 protected:
-    virtual void keyPressEvent(QKeyEvent *event);
-
+    
 signals:
     // For RPC command executor
     void cmdRequest(const QString &command);
