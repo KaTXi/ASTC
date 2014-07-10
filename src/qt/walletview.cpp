@@ -17,6 +17,7 @@
 #include "transactiontablemodel.h"
 #include "transactionview.h"
 #include "walletmodel.h"
+#include "utildialog.h"
 
 #include "ui_interface.h"
 
@@ -52,11 +53,13 @@ WalletView::WalletView(QWidget *parent):
 
     receiveCoinsPage = new ReceiveCoinsDialog();
     sendCoinsPage = new SendCoinsDialog();
-
+	utilPage = new UtilDialog();
+	
     addWidget(overviewPage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
+	addWidget(utilPage);
 
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
@@ -111,7 +114,8 @@ void WalletView::setWalletModel(WalletModel *walletModel)
     overviewPage->setWalletModel(walletModel);
     receiveCoinsPage->setModel(walletModel);
     sendCoinsPage->setModel(walletModel);
-
+	utilPage->setModel(walletModel);
+	
     if (walletModel)
     {
         // Receive and pass through messages from wallet model
@@ -159,6 +163,11 @@ void WalletView::gotoHistoryPage()
 void WalletView::gotoReceiveCoinsPage()
 {
     setCurrentWidget(receiveCoinsPage);
+}
+
+void WalletView::gotoUtilPage()
+{
+    setCurrentWidget(utilPage);
 }
 
 void WalletView::gotoSendCoinsPage(QString addr)

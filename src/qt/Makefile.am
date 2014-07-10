@@ -99,6 +99,7 @@ QT_FORMS_UI = \
   forms/receiverequestdialog.ui \
   forms/rpcconsole.ui \
   forms/sendcoinsdialog.ui \
+  forms/utildialog.ui \
   forms/sendcoinsentry.ui \
   forms/signverifymessagedialog.ui \
   forms/transactiondescdialog.ui
@@ -134,6 +135,7 @@ QT_MOC_CPP = \
   moc_recentrequeststablemodel.cpp \
   moc_rpcconsole.cpp \
   moc_sendcoinsdialog.cpp \
+  moc_utildialog.cpp \
   moc_sendcoinsentry.cpp \
   moc_signverifymessagedialog.cpp \
   moc_splashscreen.cpp \
@@ -198,6 +200,7 @@ ASTURCOIN_QT_H = \
   recentrequeststablemodel.h \
   rpcconsole.h \
   sendcoinsdialog.h \
+  utildialog.h \
   sendcoinsentry.h \
   signverifymessagedialog.h \
   splashscreen.h \
@@ -297,6 +300,7 @@ ASTURCOIN_QT_CPP += \
   receiverequestdialog.cpp \
   recentrequeststablemodel.cpp \
   sendcoinsdialog.cpp \
+  utildialog.cpp \
   sendcoinsentry.cpp \
   transactiondesc.cpp \
   transactiondescdialog.cpp \

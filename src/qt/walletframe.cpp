@@ -126,6 +126,13 @@ void WalletFrame::gotoReceiveCoinsPage()
         i.value()->gotoReceiveCoinsPage();
 }
 
+void WalletFrame::gotoUtilPage()
+{
+    QMap<QString, WalletView*>::const_iterator i;
+    for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
+        i.value()->gotoUtilPage();
+}
+
 void WalletFrame::gotoSendCoinsPage(QString addr)
 {
     QMap<QString, WalletView*>::const_iterator i;

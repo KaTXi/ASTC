@@ -247,6 +247,13 @@ void AsturCoinGUI::createActions(bool fIsTestnet)
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
+	utilAction = new QAction(QIcon(":/icons/receiving_addresses"), tr("&Utils"), this);
+    utilAction->setStatusTip(tr("Multiple little Utilities"));
+    utilAction->setToolTip(utilAction->statusTip());
+    utilAction->setCheckable(true);
+    utilAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+    tabGroup->addAction(utilAction);
+
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -257,7 +264,9 @@ void AsturCoinGUI::createActions(bool fIsTestnet)
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
-
+	connect(utilAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(utilAction, SIGNAL(triggered()), this, SLOT(gotoUtilPage()));
+    
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
@@ -386,6 +395,7 @@ void AsturCoinGUI::createToolBars()
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
+        toolbar->addAction(utilAction);
         overviewAction->setChecked(true);
     }
 }
@@ -450,6 +460,7 @@ void AsturCoinGUI::setWalletActionsEnabled(bool enabled)
     sendCoinsAction->setEnabled(enabled);
     receiveCoinsAction->setEnabled(enabled);
     historyAction->setEnabled(enabled);
+    utilAction->setEnabled(enabled);
     encryptWalletAction->setEnabled(enabled);
     backupWalletAction->setEnabled(enabled);
     changePassphraseAction->setEnabled(enabled);
@@ -583,6 +594,12 @@ void AsturCoinGUI::gotoReceiveCoinsPage()
 {
     receiveCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoReceiveCoinsPage();
+}
+
+void AsturCoinGUI::gotoUtilPage()
+{
+    utilAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoUtilPage();
 }
 
 void AsturCoinGUI::gotoSendCoinsPage(QString addr)
