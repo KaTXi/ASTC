@@ -133,7 +133,7 @@ bool parseAsturCoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!AsturCoinUnits::parse(AsturCoinUnits::l888, i->second, &rv.amount))
+                if(!AsturCoinUnits::parse(AsturCoinUnits::AST, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -172,7 +172,7 @@ QString formatAsturCoinURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(AsturCoinUnits::format(AsturCoinUnits::l888, info.amount));
+        ret += QString("?amount=%1").arg(AsturCoinUnits::format(AsturCoinUnits::AST, info.amount));
         paramCount++;
     }
 

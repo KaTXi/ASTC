@@ -51,7 +51,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", AsturCoinUnits::l888);
+        settings.setValue("nDisplayUnit", AsturCoinUnits::AST);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("bDisplayAddresses"))

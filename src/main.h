@@ -59,9 +59,9 @@ static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x1000000; // 16 MiB
 /** The pre-allocation chunk size for rev?????.dat files (since 0.8) */
 static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Dust Soft Limit, allowed with additional fee per output */
-static const int64_t DUST_SOFT_LIMIT = 1000000; // 0.01 888
+static const int64_t DUST_SOFT_LIMIT = 1000000; // 0.01 
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
-static const int64_t DUST_HARD_LIMIT = 10000;   // 0.0001 888 mininput
+static const int64_t DUST_HARD_LIMIT = 10000;   // 0.0001 
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY = 100;
 /** Coinbase maturity after block 145000 **/

@@ -15,9 +15,9 @@ AsturCoinUnits::AsturCoinUnits(QObject *parent):
 QList<AsturCoinUnits::Unit> AsturCoinUnits::availableUnits()
 {
     QList<AsturCoinUnits::Unit> unitlist;
-    unitlist.append(l888);
-    unitlist.append(m888);
-    unitlist.append(u888);
+    unitlist.append(AST);
+    unitlist.append(mAST);
+    unitlist.append(uAST);
     return unitlist;
 }
 
@@ -25,9 +25,9 @@ bool AsturCoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case l888:
-    case m888:
-    case u888:
+    case AST:
+    case mAST:
+    case uAST:
         return true;
     default:
         return false;
@@ -38,9 +38,9 @@ QString AsturCoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case l888: return QString("888");
-    case m888: return QString("m888");
-    case u888: return QString::fromUtf8("μ888");
+    case AST: return QString("ast");
+    case mAST: return QString("mast");
+    case uAST: return QString::fromUtf8("uAST");
     default: return QString("???");
     }
 }
@@ -49,9 +49,9 @@ QString AsturCoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case l888: return QString("AsturCoins");
-    case m888: return QString("Milli-AsturCoins (1 / 1,000)");
-    case u888: return QString("Micro-AsturCoins (1 / 1,000,000)");
+    case AST: return QString("AsturCoins");
+    case mAST: return QString("Milli-AsturCoins (1 / 1,000)");
+    case uAST: return QString("Micro-AsturCoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -60,9 +60,9 @@ qint64 AsturCoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case l888:  return 100000000;
-    case m888: return 100000;
-    case u888: return 100;
+    case AST:  return 100000000;
+    case mAST: return 100000;
+    case uAST: return 100;
     default:   return 100000000;
     }
 }
@@ -71,9 +71,9 @@ qint64 AsturCoinUnits::maxAmount(int unit)
 {
     switch(unit)
     {
-    case l888:  return Q_INT64_C(88888888);
-    case m888: return Q_INT64_C(88888888000);
-    case u888: return Q_INT64_C(88888888000000);
+    case AST:  return Q_INT64_C(10000000);
+    case mAST: return Q_INT64_C(10000000000);
+    case uAST: return Q_INT64_C(10000000000000);
     default:   return 0;
     }
 }
@@ -82,9 +82,9 @@ int AsturCoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case l888: return 8; // 88,888,888 (# digits, without commas)
-    case m888: return 11; // 88,888,888,000
-    case u888: return 14; // 88,888,888,000,000
+    case AST: return 8; // 10,000,000 (# digits, without commas)
+    case mAST: return 11; // 10,000,000,000
+    case uAST: return 14; // 10,000,000,000,000
     default: return 0;
     }
 }
@@ -93,9 +93,9 @@ int AsturCoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case l888: return 8;
-    case m888: return 5;
-    case u888: return 2;
+    case AST: return 8;
+    case mAST: return 5;
+    case uAST: return 2;
     default: return 0;
     }
 }

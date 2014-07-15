@@ -19,7 +19,7 @@
 class CTransaction;
 
 /** No amount larger than this (in satoshi) is valid */
-static const int64_t MAX_MONEY = 88888888 * COIN; // AsturCoin: maximum of 88,888,888 coins (given some randomness), max transaction 88,888,888
+static const int64_t MAX_MONEY = 10000000 * COIN; // AsturCoin: maximum of 100 000 000 coins (given some randomness), max transaction 100 000 000
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 
 /** An outpoint - a combination of a transaction hash and an index n into its vout */

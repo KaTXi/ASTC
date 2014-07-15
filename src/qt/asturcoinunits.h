@@ -23,9 +23,9 @@ public:
      */
     enum Unit
     {
-        l888,
-        m888,
-        u888
+        AST,
+        mAST,
+        uAST
     };
 
     //! @name Static API

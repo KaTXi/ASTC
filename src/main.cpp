@@ -53,7 +53,7 @@ bool fReindex = false;
 bool fBenchmark = false;
 bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Gigiacoin: starting difficulty is 1 / 2^12
+static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Asturcoin: starting difficulty is 1 / 2^12
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
 int64_t CTransaction::nMinTxFee = 2000000;
@@ -1115,14 +1115,14 @@ int64_t GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
 
 	}
     	// Subsidy is cut in half every 1000000 blocks, which will occur approximately every 4 years
-    	nSubsidy >>= (nHeight / 100000); // Litecoin: 840k blocks in ~4 years Gigiacoin: 100k blocks ~ 100 days
+    	nSubsidy >>= (nHeight / 100000); // Litecoin: 840k blocks in ~4 years Asturcoin: 100k blocks ~ 100 days
 
     	return nSubsidy + nFees;
 }
 
-static const int64_t nTargetSpacing = 1.5 * 60; // Litecoin: 2.5 minutes ; Gigiacoin 2.25 minutes
+static const int64_t nTargetSpacing = 1.5 * 60; // Litecoin: 2.5 minutes ; Asturcoin 2.25 minutes
 static const int64_t nOriginalInterval = 160; //160 blocks = 6 hrs
-//static const int64_t nTargetTimespan = 6 * 60 * 60; // Litecoin: 3.5 days ; Gigiacoin: 6 hours
+//static const int64_t nTargetTimespan = 6 * 60 * 60; // Litecoin: 3.5 days ; Asturcoin: 6 hours
 static const int64_t nTargetTimespan = nOriginalInterval * nTargetSpacing;
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
 
