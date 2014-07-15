@@ -65,6 +65,7 @@ private:
     WalletModel *model;
 
     bool updateLabel(const QString &address);
+    void getAddressChangeChecked(int state);
 };
 
 #endif // SENDCOINSENTRY_H

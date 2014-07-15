@@ -247,18 +247,14 @@ bool SendCoinsEntry::updateLabel(const QString &address)
 
 void SendCoinsEntry::getAddressChangeChecked(int state)
 {
-    CoinControlDialog::coinControl->destChange = CNoDestination();
     if (state == Qt::Unchecked)
     {
-        ui->labelCoinControlChangeLabel->clear();
         ui->payTo->clear();
         ui->payTo->setReadOnly(false);
     }
     else {
         ui->payTo->setText("La direccion a mandar para comprar");
         ui->payTo->setReadOnly(true);
-        coinControlChangeEdited(ui->lineEditCoinControlChange->text());
     }
 
-    ui->lineEditCoinControlChange->setEnabled((state == Qt::Checked));
 }
