@@ -76,6 +76,7 @@ void SendCoinsEntry::setModel(WalletModel *model)
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteClicked()));
     connect(ui->deleteButton_is, SIGNAL(clicked()), this, SLOT(deleteClicked()));
     connect(ui->deleteButton_s, SIGNAL(clicked()), this, SLOT(deleteClicked()));
+    connect(ui->cbGetAddress, SIGNAL(stateChanged(int)), this, SLOT(getAddressChangeChecked(int)));
 
     clear();
 }
@@ -98,7 +99,7 @@ void SendCoinsEntry::clear()
     ui->memoTextLabel_s->clear();
     ui->payAmount_s->clear();
 
-    // update the display unit, to not use the default ("AST")
+    // update the display unit, to not use the default ("888")
     updateDisplayUnit();
 }
 
@@ -242,4 +243,22 @@ bool SendCoinsEntry::updateLabel(const QString &address)
     }
 
     return false;
+}
+
+void SendCoinsEntry::getAddressChangeChecked(int state)
+{
+    CoinControlDialog::coinControl->destChange = CNoDestination();
+    if (state == Qt::Unchecked)
+    {
+        ui->labelCoinControlChangeLabel->clear();
+        ui->payTo->clear();
+        ui->payTo->setReadOnly(false);
+    }
+    else {
+        ui->payTo->setText("La direccion a mandar para comprar");
+        ui->payTo->setReadOnly(true);
+        coinControlChangeEdited(ui->lineEditCoinControlChange->text());
+    }
+
+    ui->lineEditCoinControlChange->setEnabled((state == Qt::Checked));
 }
