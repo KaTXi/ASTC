@@ -51,21 +51,21 @@ public slots:
 signals:
     void removeEntry(SendCoinsEntry *entry);
     void payAmountChanged();
-
+	
 private slots:
     void deleteClicked();
     void on_payTo_textChanged(const QString &address);
     void on_addressBookButton_clicked();
     void on_pasteButton_clicked();
     void updateDisplayUnit();
+	void getAddressChangeChecked(int state);
 
 private:
     SendCoinsRecipient recipient;
     Ui::SendCoinsEntry *ui;
     WalletModel *model;
 
-    bool updateLabel(const QString &address);
-    void getAddressChangeChecked(int state);
+    bool updateLabel(const QString &address);    
 };
 
 #endif // SENDCOINSENTRY_H

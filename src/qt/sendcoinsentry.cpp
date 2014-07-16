@@ -251,10 +251,16 @@ void SendCoinsEntry::getAddressChangeChecked(int state)
     {
         ui->payTo->clear();
         ui->payTo->setReadOnly(false);
+		ui->addressBookButton->setEnabled(true);
+		ui->pasteButton->setEnabled(true);
+		ui->deleteButton->setEnabled(true);
     }
     else {
         ui->payTo->setText("La direccion a mandar para comprar");
         ui->payTo->setReadOnly(true);
+		ui->addressBookButton->setEnabled(false);
+		ui->pasteButton->setEnabled(false);
+		ui->deleteButton->setEnabled(false);
     }
 
 }
